@@ -7,8 +7,8 @@ const router = express.Router();
 const SECRET_KEY = "MY_SUPER_SECRET_KEY"; // you can move this to .env
 
 // Hardcoded admin (change with database later)
-const ADMIN_USER = "admin";
-const ADMIN_PASS = "admin123";
+const ADMIN_USER = process.env.ADMIN_USER;
+const ADMIN_PASS = process.env.ADMIN_PASS;
 
 // --------------------- Admin Login ---------------------
 router.post("/login", (req, res) => {
