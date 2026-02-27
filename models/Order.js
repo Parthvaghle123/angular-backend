@@ -7,9 +7,11 @@ const orderSchema = new mongoose.Schema({
   address: String,
   phone: String,
   paymentMethod: String,
+  paymentStatus: { type: String, default: "Pending" }, // Pending, Paid
+  transactionId: { type: String, default: null },
   payment_details: {
-    razorpayOrderId: { type: String, default: null },
-    razorpayPaymentId: { type: String, default: null },
+    cardNumber: { type: String, default: null },
+    expiry: { type: String, default: null },
   },
   status: { type: String, default: "Approved" },
   cancelReason: { type: String, default: null },

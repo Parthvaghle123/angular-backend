@@ -114,6 +114,8 @@ router.post("/verify-payment", authenticateToken, async (req, res) => {
       phone: phone || user.phone,
       address,
       paymentMethod: "Online Payment",
+      paymentStatus: "Paid",
+      transactionId: razorpay_payment_id,
       payment_details: {
         razorpayOrderId: razorpay_order_id,
         razorpayPaymentId: razorpay_payment_id,
@@ -157,11 +159,10 @@ router.post("/order", authenticateToken, async (req, res) => {
       email: email || user.email,
       phone: phone || user.phone,
       address,
-      paymentMethod: paymentMethod || "Cash On Delivery",
-      payment_details: {
-        razorpayOrderId: null,
-        razorpayPaymentId: null,
-      },
+      paymentMethod,
+      paymentStatus: "Pending",
+      transactionId: null,
+      payment_details: {},
       items: cart.items,
     });
 
