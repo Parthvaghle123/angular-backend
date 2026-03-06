@@ -23,7 +23,19 @@ const productSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Drinks', 'Food', 'Merchandise', 'Gifts', 'Other']
+    enum: [
+      // Menu categories
+      'Bestseller',
+      'Drinks',
+      'Food',
+      'Coffee At Home',
+      'Ready to Eat',
+      // Gift categories
+      'Anytime',
+      'Congratulations',
+      'Thank You',
+      'Holiday Specials'
+    ]
   },
   isAvailable: {
     type: Boolean,
